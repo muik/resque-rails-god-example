@@ -1,0 +1,16 @@
+every_minutes:
+  cron: "* * * * *"
+  class: ScheduleJob
+  queue: high
+  args: 
+  - 'every_minutes'
+  description: "매분마다 작업 실행"
+
+specific_time:
+  cron: "0 6,12 * * *"
+  class: ScheduleJob
+  queue: high
+  args: 
+  - 'specific_time'
+  description: "6시, 12시에 작업 실행"
+
