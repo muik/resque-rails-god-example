@@ -9,6 +9,9 @@ task "resque:setup" => :environment do
   # you probably already have this somewhere
   Resque.redis = 'localhost:6379'
 
+  app_name = Rails.application.class.parent_name
+  Resque.redis.namespace = "resque:#{app_name}"
+
   # If you want to be able to dynamically change the schedule,
   # uncomment this line.  A dynamic schedule can be updated via the
   # Resque::Scheduler.set_schedule (and remove_schedule) methods.

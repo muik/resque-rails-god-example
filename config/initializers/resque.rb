@@ -6,7 +6,7 @@ rails_env = ENV['RAILS_ENV'] || 'development'
 resque_config = YAML.load_file(rails_root + '/config/resque.yml')
 Resque.redis = resque_config[rails_env]
 
-app_name = 'resque-rails-god-example'
+app_name = Rails.application.class.parent_name
 Resque.redis.namespace = "resque:#{app_name}"
 
 Resque.schedule = YAML.load_file('config/resque_schedule.yml')

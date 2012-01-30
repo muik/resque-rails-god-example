@@ -1,4 +1,5 @@
 <%= form_tag('', method: :get) do -%>
 <%= text_field_tag :value, params[:value] %>
 <%= submit_tag :enqueue %>
+and see log/resque.log
 <% end -%>

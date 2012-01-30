@@ -1,3 +1,5 @@
+# reference: https://github.com/defunkt/resque/blob/master/examples/god/resque.god
+
 rails_env   = ENV['RAILS_ENV']  || "development"
 rails_root  = ENV['RAILS_ROOT'] || File.dirname(__FILE__) + '/..'
 num_workers = rails_env == 'production' ? 5 : 2
