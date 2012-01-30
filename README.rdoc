@@ -1,5 +1,59 @@
 == Resque + resque-scheduler + god + Rails Example
 
+== Configuration and Sample Files
+
+rails_root/
+* Gemfile : add gem 
+* config/
+  * routes.rb : set /resque
+  * resque.yml : redis ip config
+  * resque_scheduler.yml : resque-scheduler sample code
+  * resque.god : resque god config
+  * resque_scheduler.god : resque-scheduler god config
+  * initializers/
+    * resque.rb : resque config
+* lib/
+  * sample_job.rb : sample job
+  * schedule_job.rb : schedule sample job
+  * error_job.rb : error sample job
+  * tasks/
+    * resque.rake : resque:setup config
+* app/
+  * controller/
+    * welcome_controller.rb
+  * view/
+    * welcome/
+      * index.html.erb
+
+== Commands
+
+load god config
+
+  $ god load config/resque.god
+  $ god load config/resque_scheduler.god
+
+resque worker, resque-scheduler start/stop/restart by god
+
+  $ god start resque
+  $ god start resque_scheduler
+  
+  $ god stop resque
+  $ god stop resque_scheduler
+  
+  $ god restart resque
+  $ god restart resque_scheduler
+
+show god status
+  $ god status
+
+connect resque-web
+  http://localhost:3000/resque
+  
+log
+  $ tail -f log/resque.log
+  $ tail -f log/resque_scheduler.log
+  
+
 Rails is a web-application framework that includes everything needed to create
 database-backed web applications according to the Model-View-Control pattern.
 
